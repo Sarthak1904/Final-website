@@ -4,6 +4,8 @@ import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
 import { ArrowUpRight } from "lucide-react"
+import { motion } from "framer-motion"
+import { sectionReveal, projectItem, underline } from "@/lib/motions"
 
 interface Project {
     title: string
@@ -95,7 +97,15 @@ export function ProjectShowcase() {
     }
 
     return (
-        <section ref={containerRef} onMouseMove={handleMouseMove} className="relative w-full max-w-5xl mx-auto px-6 py-32">
+        <motion.section
+            ref={containerRef}
+            onMouseMove={handleMouseMove}
+            variants={sectionReveal}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            className="relative w-full max-w-5xl mx-auto px-6 py-32"
+        >
             <h2 className="text-muted-foreground text-sm font-medium tracking-wide uppercase mb-8">Selected Work</h2>
 
             <div
@@ -129,23 +139,17 @@ export function ProjectShowcase() {
 
             <div className="space-y-0">
                 {projects.map((project, index) => (
-                    <a
+                    <motion.a
                         key={project.title}
                         href={project.link}
-                        className="group block"
+                        variants={projectItem}
+                        initial="rest"
+                        whileHover="hover"
+                        className="group block rounded-xl px-4 cursor-pointer"
                         onMouseEnter={() => handleMouseEnter(index)}
                         onMouseLeave={handleMouseLeave}
                     >
-                        <div className="relative py-5 border-t border-border transition-all duration-300 ease-out">
-                            {/* Background highlight on hover */}
-                            <div
-                                className={`
-                  absolute inset-0 -mx-4 px-4 bg-secondary/50 rounded-lg
-                  transition-all duration-300 ease-out
-                  ${hoveredIndex === index ? "opacity-100 scale-100" : "opacity-0 scale-95"}
-                `}
-                            />
-
+                        <div className="relative py-8 border-t border-border transition-all duration-300 ease-out">
                             <div className="relative flex items-start justify-between gap-4">
                                 <div className="flex-1 min-w-0">
                                     {/* Title with animated underline */}
@@ -154,12 +158,9 @@ export function ProjectShowcase() {
                                             <span className="relative">
                                                 {project.title}
                                                 {/* Animated underline */}
-                                                <span
-                                                    className={`
-                            absolute left-0 -bottom-1 h-[2px] bg-foreground/80
-                            transition-all duration-300 ease-out
-                            ${hoveredIndex === index ? "w-full" : "w-0"}
-                          `}
+                                                <motion.span
+                                                    variants={underline}
+                                                    className="absolute left-0 -bottom-1 h-[2px] bg-foreground/80 w-full"
                                                 />
                                             </span>
                                         </h3>
@@ -201,12 +202,12 @@ export function ProjectShowcase() {
                                 </span>
                             </div>
                         </div>
-                    </a>
+                    </motion.a>
                 ))}
 
                 {/* Bottom border for last item */}
                 <div className="border-t border-border" />
             </div>
-        </section>
+        </motion.section>
     )
 }

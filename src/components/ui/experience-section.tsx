@@ -1,6 +1,6 @@
-"use client"
-
 import type React from "react"
+import { motion } from "framer-motion"
+import { sectionReveal, timelineItem } from "@/lib/motions"
 
 interface Experience {
     role: string
@@ -50,12 +50,23 @@ export function ExperienceSection() {
     const allJourneyItems = [...experiences, ...education]
 
     return (
-        <section className="relative w-full max-w-5xl mx-auto px-6 py-32">
+        <motion.section
+            variants={sectionReveal}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            className="relative w-full max-w-5xl mx-auto px-6 py-32"
+        >
             <div className="space-y-0">
                 <h2 className="text-muted-foreground text-sm font-medium tracking-wide uppercase mb-8">Journey</h2>
                 <div className="border-t border-border">
                     {allJourneyItems.map((item, index) => (
-                        <div key={index} className="group relative">
+                        <motion.div
+                            key={index}
+                            variants={timelineItem}
+                            animate={item.isCurrent ? "active" : "inactive"}
+                            className="group relative"
+                        >
                             <div
                                 className={`
                   relative flex items-start justify-between gap-4 px-4 py-8 transition-all duration-500 ease-out border-b border-border
@@ -81,10 +92,10 @@ export function ExperienceSection() {
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }

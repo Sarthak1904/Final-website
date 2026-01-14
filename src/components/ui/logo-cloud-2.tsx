@@ -2,6 +2,8 @@
 
 import { cn } from "@/lib/utils";
 import { PlusIcon } from "lucide-react";
+import { motion } from "framer-motion";
+import { logoDrift } from "@/lib/motions";
 
 type Logo = {
     src: string;
@@ -58,46 +60,39 @@ export function LogoCloud({ className, ...props }: React.ComponentProps<"div">) 
             <div className="relative z-10 flex flex-1 flex-col overflow-hidden py-3">
                 {/* Row 1 */}
                 <div className="flex w-full overflow-hidden border-b border-border/50 py-4 last:border-b-0">
-                    <div className="flex w-max shrink-0 animate-marquee items-center justify-around gap-16 px-8">
-                        {Array.from({ length: 4 }).flatMap(() =>
-                            logos.slice(0, 6).map((logo, i) => (
-                                <LogoImage key={`row1-${i}`} logo={logo} />
-                            ))
-                        )}
-                    </div>
+                    <motion.div
+                        variants={logoDrift}
+                        animate="animate"
+                        className="flex w-max shrink-0 items-center justify-around gap-16 px-8"
+                    >
+                        {[...logos.slice(0, 6), ...logos.slice(0, 6), ...logos.slice(0, 6), ...logos.slice(0, 6)].map((logo, i) => (
+                            <LogoImage key={`row1-${i}`} logo={logo} />
+                        ))}
+                    </motion.div>
                 </div>
 
                 {/* Row 2 */}
                 <div className="flex w-full overflow-hidden py-4">
-                    <div className="flex w-max shrink-0 animate-marquee-reverse items-center justify-around gap-16 px-8">
-                        {Array.from({ length: 4 }).flatMap(() =>
-                            logos.slice(6).map((logo, i) => (
-                                <LogoImage key={`row2-${i}`} logo={logo} />
-                            ))
-                        )}
-                    </div>
+                    <motion.div
+                        initial={{ x: "-50%" }}
+                        animate={{ x: "0%" }}
+                        transition={{
+                            duration: 30,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                        className="flex w-max shrink-0 items-center justify-around gap-16 px-8"
+                    >
+                        {[...logos.slice(6), ...logos.slice(6), ...logos.slice(6), ...logos.slice(6)].map((logo, i) => (
+                            <LogoImage key={`row2-${i}`} logo={logo} />
+                        ))}
+                    </motion.div>
                 </div>
 
                 {/* Side Masks with a smoother, slightly wider fade */}
                 <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background via-background/80 to-transparent z-20" />
                 <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-20" />
             </div>
-
-            <style jsx global>{`
-        @keyframes marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(calc(-50%)); }
-        }
-        .animate-marquee {
-          animation: marquee 50s linear infinite;
-        }
-        .animate-marquee-reverse {
-          animation: marquee 50s linear infinite reverse;
-        }
-        .animate-marquee:hover, .animate-marquee-reverse:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
         </div>
     );
 }
