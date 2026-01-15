@@ -2,10 +2,10 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import HeroSection from "@/components/ui/hero-section";
-import { AboutSection } from "@/components/ui/about-section";
 import { ProjectShowcase } from "@/components/ui/project-showcase";
 import { LogoCloud } from "@/components/ui/logo-cloud-2";
 import { ExperienceSection } from "@/components/ui/experience-section";
+import { ProfileSection } from "@/components/ui/profile-section";
 import { pageTransition, sectionReveal } from "@/lib/motions";
 
 export default function Home() {
@@ -20,8 +20,6 @@ export default function Home() {
       >
         <HeroSection />
 
-        <AboutSection />
-
         <ProjectShowcase />
 
         <motion.section
@@ -33,8 +31,8 @@ export default function Home() {
         >
           <LogoCloud />
         </motion.section>
-
         <ExperienceSection />
+        <ProfileSection />
       </motion.main>
     </AnimatePresence>
   );
