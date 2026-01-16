@@ -136,7 +136,7 @@ export default function AboutSection1() {
                         containerClassName="text-[#00000] leading-[120%] text-center  justify-center items-center"
                     >
                         {
-                            "A Legacy of Excellence, How Our Dedication Fuels Everything We Do"
+                            "Creating Experiences Through Code, Cooking, and Photography"
                         }
                     </VerticalCutReveal>
                 </h2>
@@ -148,9 +148,8 @@ export default function AboutSection1() {
                     timelineRef={heroRef}
                     className="text-gray-600 text-center sm:text-lg text-sm mb-8 leading-relaxed"
                 >
-                    From day one, our mission has been to create solutions that inspire,
-                    empower, and make a difference. With a commitment to quality and
-                    creativity.
+                    Hey, I'm Sarthak. I enjoy writing thoughtful code, experimenting in
+                    the kitchen, and telling stories through photography.
                 </TimelineContent>
 
                 <TimelineContent
@@ -235,6 +234,9 @@ export default function AboutSection1() {
                     />
                 </TimelineContent>
             </div>
-        </section>
+
+            {/* Gradient Overlay for Smooth Transition */}
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/80 to-transparent z-20 pointer-events-none" />
+        </section >
     );
 }
