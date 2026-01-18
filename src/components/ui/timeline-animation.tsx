@@ -18,6 +18,9 @@ export const TimelineContent = ({
     className,
     style,
     as: Component = "div",
+    animationNum,
+    customVariants,
+    timelineRef,
     ...props
 }: TimelineContentProps) => {
     return (
