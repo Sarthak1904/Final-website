@@ -45,11 +45,11 @@ const projects: Project[] = [
         image: "/images/cudaspatia-hover.png",
     },
     {
-        title: "Vertex",
-        description: "3D modeling toolkit for the web.",
-        year: "2023",
-        link: "#",
-        image: "https://i.pinimg.com/736x/7c/15/39/7c1539cf7ff0207cb49ce0d338de1e5f.jpg",
+        title: "SpendWise",
+        description: "AI-Powered Expense Management",
+        year: "2024",
+        link: "https://github.com/Sarthak1904/Spend-Wise",
+        image: "/images/spendwise-hover.jpg",
     },
 ]
 

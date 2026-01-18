@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { profileCardAnimation } from "@/lib/motions";
 import Image from "next/image";
+import Link from "next/link";
 import { Plus, Linkedin, Instagram } from "lucide-react";
 
 export function ProfileSection() {
@@ -41,9 +42,9 @@ export function ProfileSection() {
 
 
 
-                        <button className="bg-[#262626] text-white px-8 py-4 rounded-full text-base font-bold hover:bg-black transition-colors shadow-lg">
+                        <Link href="/about" className="bg-[#262626] text-white px-8 py-4 rounded-full text-base font-bold hover:bg-black transition-colors shadow-lg inline-block">
                             About Me
-                        </button>
+                        </Link>
                     </div>
                 </div>
 

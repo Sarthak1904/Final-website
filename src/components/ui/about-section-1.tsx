@@ -157,6 +157,12 @@ export default function AboutSection1() {
                     animationNum={1}
                     customVariants={revealVariants3}
                     timelineRef={heroRef}
+                    onClick={() => {
+                        const footer = document.getElementById('contact');
+                        if (footer) {
+                            footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }}
                     className="bg-blue-600 hover:bg-blue-600 shadow-lg shadow-blue-600 border border-blue-600 flex w-fit mx-auto gap-2 hover:gap-4 transition-all duration-300 ease-in-out text-white px-5 py-3 rounded-full cursor-pointer"
                 >
                     Connect with me <ArrowRight className="" />
