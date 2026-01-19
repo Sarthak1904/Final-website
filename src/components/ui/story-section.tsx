@@ -24,9 +24,6 @@ export default function StorySection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                <div className="bg-white p-4 shadow-xl rotate-12 rounded border transform hover:rotate-0 transition-transform duration-500">
-                    <p className="font-serif text-sm italic">"Good design is obvious. Great design is transparent."</p>
-                </div>
             </motion.div>
 
             {/* Main Content Column */}
