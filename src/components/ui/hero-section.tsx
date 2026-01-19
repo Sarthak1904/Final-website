@@ -45,7 +45,7 @@ export default function HeroSection() {
   const transformX = useTransform(x, [-50, 50], [-8, 8])
   const transformY = useTransform(y, [-50, 50], [-8, 8])
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
     x.set(e.clientX - rect.left - rect.width / 2)
     y.set(e.clientY - rect.top - rect.height / 2)

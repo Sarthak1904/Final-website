@@ -5,14 +5,6 @@ import { motion } from "framer-motion";
 import { PixelTrail } from "./pixel-trail";
 
 export function Footer() {
-    const [copied, setCopied] = React.useState(false);
-
-    const handleCopy = () => {
-        navigator.clipboard.writeText("sarthakchoudhary830@gmail.com");
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
-
     return (
         <footer id="contact" className="w-full bg-[#e0e0da] py-32 px-10 md:px-20 relative overflow-hidden flex flex-col items-center justify-center min-h-[60vh]">
             <PixelTrail
@@ -34,19 +26,41 @@ export function Footer() {
                         Glad you made it to the end!
                     </h2>
 
-                    <div className="flex flex-col items-center w-fit">
-                        <p className="text-lg md:text-xl text-neutral-500 text-center mb-8 whitespace-nowrap">
+                    <div className="flex flex-col items-center w-fit pointer-events-auto">
+                        <p className="text-lg md:text-xl text-neutral-500 text-center mb-12 whitespace-nowrap">
                             Let’s create something amazing together.
                         </p>
 
-                        <div className="pt-0 w-full flex justify-center pointer-events-auto">
-                            <button
-                                onClick={handleCopy}
-                                className="bg-white text-black w-[80%] py-4 rounded-full text-sm font-semibold shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2"
-                            >
-                                <span>{copied ? "Copied!" : "sarthakchoudhary830@gmail.com"}</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
-                            </button>
+                        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+                            {[
+                                { label: "Email", href: "mailto:sarthakchoudhary830@gmail.com" },
+                                { label: "LinkedIn", href: "https://www.linkedin.com/in/sarchou/" },
+                                { label: "Instagram", href: "https://www.instagram.com/sc.uncaptured/" },
+                            ].map((link) => (
+                                <motion.a
+                                    key={link.label}
+                                    href={link.href}
+                                    target={link.label !== "Email" ? "_blank" : undefined}
+                                    rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
+                                    className="group flex items-center gap-2 text-black/60 hover:text-black transition-colors font-semibold text-xl md:text-2xl"
+                                    initial="initial"
+                                    whileHover="hover"
+                                >
+                                    {link.label}
+                                    <motion.span
+                                        variants={{
+                                            initial: { rotate: 45 },
+                                            hover: { rotate: 0 }
+                                        }}
+                                        transition={{ duration: 0.2, ease: "easeOut" }}
+                                        className="inline-block"
+                                    >
+                                        <svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.5 1.5H10.5M10.5 1.5V8.5M10.5 1.5L1.5 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </motion.span>
+                                </motion.a>
+                            ))}
                         </div>
                     </div>
                 </motion.div>
