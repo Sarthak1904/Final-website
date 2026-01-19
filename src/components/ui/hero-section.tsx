@@ -3,6 +3,7 @@
 // Imports update
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import { heroText, floatingOrb, ctaButton } from '@/lib/motions';
 
 const greetings = [
@@ -153,7 +154,8 @@ export default function HeroSection() {
         </p>
 
         <div className="mx-auto w-full flex items-center justify-center gap-3 mt-8">
-          <motion.button
+          <motion.a
+            href="mailto:sarthakchoudhary830@gmail.com"
             variants={ctaButton}
             initial="rest"
             whileHover="hover"
@@ -161,22 +163,24 @@ export default function HeroSection() {
             style={{ x: transformX, y: transformY }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-full font-medium transition-all shadow-sm"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-full font-medium transition-all shadow-sm flex items-center justify-center cursor-pointer"
           >
-            Resume
-          </motion.button>
-          <motion.button
-            variants={ctaButton}
-            initial="rest"
-            whileHover="hover"
-            whileTap="tap"
-            className="flex items-center gap-2 border border-border hover:bg-secondary rounded-full px-8 py-3 transition-colors text-foreground"
-          >
-            <span> Sarthak.AI</span>
-            <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-              <path d="M1.25.5 4.75 4l-3.5 3.5" stroke="currentColor" strokeOpacity=".6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </motion.button>
+            DM me
+          </motion.a>
+          <Link href="/sarthak-ai">
+            <motion.button
+              variants={ctaButton}
+              initial="rest"
+              whileHover="hover"
+              whileTap="tap"
+              className="flex items-center gap-2 border border-border hover:bg-secondary rounded-full px-8 py-3 transition-colors text-foreground"
+            >
+              <span> Sarthak.AI</span>
+              <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                <path d="M1.25.5 4.75 4l-3.5 3.5" stroke="currentColor" strokeOpacity=".6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </motion.button>
+          </Link>
         </div>
       </motion.div>
     </section>
