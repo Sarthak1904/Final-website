@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins, Gochi_Hand } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 import { Navbar } from "@/components/ui/navbar";
@@ -47,6 +48,7 @@ export default function RootLayout({
 
         <Navbar />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
