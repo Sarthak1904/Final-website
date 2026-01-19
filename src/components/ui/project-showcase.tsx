@@ -149,6 +149,8 @@ export function ProjectShowcase() {
                     <motion.a
                         key={project.title}
                         href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         variants={projectItem}
                         initial="rest"
                         whileHover="hover"

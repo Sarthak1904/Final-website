@@ -91,7 +91,7 @@ export function LogoCloud({ className, ...props }: React.ComponentProps<"div">) 
                         animate="animate"
                         className="flex w-max shrink-0 items-center justify-around gap-16 px-8"
                     >
-                        {[...logos.slice(0, 6), ...logos.slice(0, 6), ...logos.slice(0, 6), ...logos.slice(0, 6)].map((logo, i) => (
+                        {[...logos.slice(0, 26), ...logos.slice(0, 26)].map((logo, i) => (
                             <LogoImage key={`row1-${i}`} logo={logo} />
                         ))}
                     </motion.div>
@@ -103,13 +103,13 @@ export function LogoCloud({ className, ...props }: React.ComponentProps<"div">) 
                         initial={{ x: "-50%" }}
                         animate={{ x: "0%" }}
                         transition={{
-                            duration: 30,
+                            duration: 30, // Using same duration as Row 1
                             repeat: Infinity,
                             ease: "linear"
                         }}
                         className="flex w-max shrink-0 items-center justify-around gap-16 px-8"
                     >
-                        {[...logos.slice(6), ...logos.slice(6), ...logos.slice(6), ...logos.slice(6)].map((logo, i) => (
+                        {[...logos.slice(26), ...logos.slice(26)].map((logo, i) => (
                             <LogoImage key={`row2-${i}`} logo={logo} />
                         ))}
                     </motion.div>
