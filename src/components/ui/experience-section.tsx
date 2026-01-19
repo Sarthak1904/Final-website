@@ -142,7 +142,7 @@ export function ExperienceSection() {
                             </div>
                             <div className="w-1/3 h-full relative rounded-3xl overflow-hidden shadow-sm">
                                 <Image
-                                    src="/images/team.jpg"
+                                    src="/images/whatsapp-image-2026-01-17-2-39-16-pm.jpeg"
                                     alt="Team discussion"
                                     fill
                                     sizes="20vw"
@@ -151,11 +151,11 @@ export function ExperienceSection() {
                             </div>
                             <div className="w-1/3 h-full relative rounded-3xl overflow-hidden shadow-sm">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1470&auto=format&fit=crop"
+                                    src="/images/screenshot-2026-01-18-185814.png"
                                     alt="Office space"
                                     fill
                                     sizes="20vw"
-                                    className="object-cover grayscale brightness-110"
+                                    className="object-cover"
                                 />
                             </div>
                         </div>
